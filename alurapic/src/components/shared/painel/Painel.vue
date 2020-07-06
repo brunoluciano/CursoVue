@@ -2,7 +2,7 @@
   <div class="painel">
     <h2 class="painel-titulo" @dblclick="visivel = !visivel">{{ titulo }}</h2>
     <transition name="painel-fade">
-      <div class="painel-corpo" v-show="visivel">
+      <div class="painel-conteudo" v-show="visivel">
         <slot></slot>
       </div>
     </transition>
@@ -53,5 +53,9 @@ export default {
 
 .painel-fade-enter-active, .painel-fade-leave-active {
   transition: opacity .4s
+}
+
+.painel-conteudo {
+  overflow: hidden;
 }
 </style>
