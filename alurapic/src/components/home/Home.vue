@@ -2,11 +2,13 @@
   <div>
     <h1 class="centralizado">{{ titulo }}</h1>
 
+    <!-- <img src="/static/teste.png" alt=""> -->
+
     <p v-show="mensagem" class="centralizado">{{ mensagem }}</p>
 
     <input type="search" class="filtro" @input="filtro = $event.target.value" placeholder="Filtre pelo título da foto">
     <ul class="lista-fotos">
-      <li class="lista-fotos-item" v-for="foto of fotosComFiltro">
+      <li class="lista-fotos-item" v-for="foto of fotosComFiltro" :key="foto._id">
         <meu-painel :titulo="foto.titulo">
           <imagem-responsiva v-meu-transform:scale.animate="1.3" :url="foto.url" :titulo="foto.titulo" />
           <router-link :to="{ name: 'altera', params: { id: foto._id }}">
